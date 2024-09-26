@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ../greberp-web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:3000"
+    volumes:
+      - ../greberp-web/.env:/app/.env
+      - ../greberp-web/src:/app/src
+      - ../greberp-web/public:/app/public
+      - ../greberp-web/package.json:/app/package.json
+
+  api:
+    build:
+      context: ../greberp-api
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/mydatabase
+      ENC_KEY: 4b3f42b1740c7a8d1a739a1b7f1b3dbf18b02db4a376c82b75634a65e82f4cda
+      WEB_OAUTH_REDIRECT_URL: http://localhost:8080/oauth2-callback
+      REDIRECT_URI: http://localhost:3000/api/auth/google/callback
+      CLIENT_ID: 174434190400-3i4tgtik364mh7ajnj25669sc358fv02.apps.googleusercontent.com
+      CLIENT_SECRET: jpVwoBvRAtzsHnMlaNPmBDiP
+    depends_on:
+      - mongodb
+    volumes:
+      - ../greberp-api/controllers:/app/controllers
+      - ../greberp-api/models:/app/models
+      - ../greberp-api/services:/app/services
+      - ../greberp-api/routes:/app/routes
+      - ../greberp-api/app.js:/app/app.js
+
+  mongodb:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
