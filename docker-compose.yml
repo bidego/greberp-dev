@@ -16,8 +16,10 @@ services:
   api:
     build:
       context: ../greberp-api
+    command: npm run debug
     ports:
       - "3000:3000"
+      - "9229:9229"
     environment:
       MONGO_URI: mongodb://mongodb:27017/mydatabase
       ENC_KEY: 4b3f42b1740c7a8d1a739a1b7f1b3dbf18b02db4a376c82b75634a65e82f4cda
