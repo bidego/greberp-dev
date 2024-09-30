@@ -27,6 +27,10 @@ services:
       REDIRECT_URI: http://localhost:3000/api/auth/google/callback
       CLIENT_ID: 174434190400-3i4tgtik364mh7ajnj25669sc358fv02.apps.googleusercontent.com
       CLIENT_SECRET: jpVwoBvRAtzsHnMlaNPmBDiP
+      ML_CLIENT_ID: 5159414656334283
+      ML_SECRET: 7aovdTGg1Kz8SixUTOuycrVtm21ScmSz
+      ML_REDIRECT_URI: https://api-local.tukit.uk/api/oauth/ml/callback
+      ML_REDIRECT_LOGIN_OK: http://localhost:3000
     depends_on:
       - mongodb
     volumes:
