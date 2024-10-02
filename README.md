@@ -1,5 +1,25 @@
 # Greberp Dev
 
+## Prerequisitos
+
+- Tener instalado [Docker](https://docs.docker.com/engine/install/)
+- Tener instalado [Docker Compose](https://docs.docker.com/compose/install/)
+
+- Tener descargado los proyectos de [Greberp WEB](https://github.com/bidego/greberp-web) y [Greberp API](https://github.com/bidego/greberp-api) en la misma carpeta que este proyecto.
+
+## Iniciar el servidor de desarrollo
+```sh 
+make start
+```
+* Si no tenes Makefile, podes ejecutar los siguientes comandos:
+```sh
+docker-compose up -d --build
+```
+
+Esto iniciará el servidor de desarrollo de Greberp WEB y el servidor de desarrollo de Greberp API y la base de datos mongoDB.
+
+Para acceder a la interfaz de usuario de Greberp WEB, abrir la url `http://localhost:8080/` en el navegador.
+
 ## Integracion con MercadoLibre API
 
 Datos de pruebas:
