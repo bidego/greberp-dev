@@ -14,6 +14,15 @@ Datos de pruebas:
 }
 ```
 
+```json
+{
+  "id":2008129535,
+  "email":"test_user_1961744769@testuser.com",
+  "nickname":"TESTUSER1961744769",
+  "site_status":"active",
+  "password":"y7F6SysLA5"
+}
+```
 Peticion para crear usuario:
 
 ```sh

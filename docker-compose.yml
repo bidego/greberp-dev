@@ -30,7 +30,7 @@ services:
       ML_CLIENT_ID: 5159414656334283
       ML_SECRET: 7aovdTGg1Kz8SixUTOuycrVtm21ScmSz
       ML_REDIRECT_URI: https://api-local.tukit.uk/api/oauth/ml/callback
-      ML_REDIRECT_LOGIN_OK: http://localhost:3000
+      ML_REDIRECT_LOGIN_OK: http://localhost:8080
     depends_on:
       - mongodb
     volumes:
